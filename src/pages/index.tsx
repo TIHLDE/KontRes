@@ -1,15 +1,15 @@
-import { ResponseData } from "@/pages/api/test";
-import { Header } from "../components/Header";
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { User } from '@prisma/client';
+import { Header } from '../components/Header';
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 
 const Home = (
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) => {
-  console.log(props, "asdasddadasda");
+  console.log(props, 'asdasddadasda');
   return (
     <div
       style={{
-        minHeight: "150vh",
+        minHeight: '150vh',
       }}
     >
       <Header />
@@ -17,17 +17,11 @@ const Home = (
   );
 };
 
-export const getServerSideProps: GetServerSideProps<
-  ResponseData
-> = async () => {
-  let data: ResponseData = {
-    coolString: "",
-    message: "",
-  };
-
+export const getServerSideProps: GetServerSideProps<User[]> = async () => {
+  let data: User[] = [];
   try {
-    const response = await fetch("http://localhost:3000/api/test", {
-      method: "GET",
+    const response = await fetch('http://localhost:3000/api/test', {
+      method: 'GET',
     });
 
     data = await response.json();
