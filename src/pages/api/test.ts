@@ -1,20 +1,15 @@
-import { PrismaClient } from "@prisma/client";
-import { NextApiRequest, NextApiResponse } from "next";
+import { PrismaClient, User } from '@prisma/client';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 const prisma = new PrismaClient();
 
-export type ResponseData = {
-  message: string;
-  coolString: string;
-};
-
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<ResponseData>
+  res: NextApiResponse<User[]>
 ) {
-  if (req.method === "GET") {
+  if (req.method === 'GET') {
     const users = await getAllUsers();
-    res.status(200).json({ message: users.toString(), coolString: "Heipådeg" });
+    res.status(200).json(users);
   }
 }
 
