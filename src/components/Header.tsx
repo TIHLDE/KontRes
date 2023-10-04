@@ -1,24 +1,27 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-
+import PersonIcon from "@mui/icons-material/Person";
+import { useEffect, useState } from "react";
 // Material
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  Drawer,
-  IconButton,
-  Link as MuiLink,
-  Toolbar,
-  useTheme,
-} from "@mui/material";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import { AppBar, IconButton, Toolbar } from "@mui/material";
+import { Link } from "./Link";
 import Logo from "./Logo";
-import { OpenInNew, Menu } from "@mui/icons-material";
 
 export const Header = () => {
   const [opaque, setOpaque] = useState(false);
+  const handleScroll = () => {
+    if (window.scrollY !== 0 && opaque) setOpaque(false);
+    else if (window.scrollY === 0 && !opaque) setOpaque(true);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     const scrollHandler = () => {
@@ -39,14 +42,45 @@ export const Header = () => {
 
   return (
     <AppBar
-      position="sticky"
-      color="transparent"
+      position='sticky'
+      color='transparent'
       sx={{
         paddingY: ".5rem",
       }}
+      style={{
+        backdropFilter: opaque ? "blur(7.2px)" : "unset",
+        backgroundColor: opaque ? "rgba(8,25,48, 0.6)" : "unset",
+      }}
+      elevation={opaque ? 4 : 0}
     >
-      <Toolbar variant="dense">
-        <Logo />
+      <Toolbar variant='regular'>
+        <Link href='/'>
+          <Logo />
+        </Link>
+        <Link sx={{ mx: 4, ml: 8 }} href='/kontoret'>
+          Kontoret
+        </Link>
+        <Link sx={{ color: "text.primary", mx: 4 }} href='/soundboks'>
+          Soundboks
+        </Link>
+        <IconButton
+          size='large'
+          color='inherit'
+          aria-label='lightmode'
+          sx={{ mx: 1, ml: "auto" }}
+        >
+          <LightModeIcon />
+        </IconButton>
+        <Link href='/login'>
+          <IconButton
+            size='large'
+            color='inherit'
+            aria-label='user'
+            sx={{ mx: 1 }}
+          >
+            <PersonIcon />
+          </IconButton>
+        </Link>
       </Toolbar>
     </AppBar>
   );
