@@ -1,5 +1,5 @@
 import { getItem, getReservation } from "@/apis/reservations/reservations";
-import Reservation from "./Reservation";
+import Reservation from "./components/Reservation";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { DetailedReservation } from "@/apis/reservations/types";
 import { useRouter } from "next/router";
