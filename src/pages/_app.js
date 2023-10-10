@@ -2,6 +2,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { dark } from "../theme/dark";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { Box } from "@mui/material";
+import { Header } from "@/components/Header";
 
 export default function App({ Component, pageProps }) {
   const queryClient = new QueryClient();
@@ -10,7 +12,16 @@ export default function App({ Component, pageProps }) {
     <ThemeProvider theme={dark}>
       <CssBaseline />
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
+        <>
+          <Header />
+          <Box
+            sx={{
+              paddingTop: 0,
+            }}
+          >
+            <Component {...pageProps} />
+          </Box>
+        </>
       </QueryClientProvider>
     </ThemeProvider>
   );

@@ -1,12 +1,16 @@
-type DetailedReservation = {
+export type DetailedReservation = {
   id: string;
   bookable_item: string;
-  start_time: Date;
-  end_time: Date;
-  state: string;
+  start_time: string;
+  end_time: string;
+  state: "CONFIRMED" | "PENDING" | "CANCELLED";
   description: string;
-  created_at: Date;
+  created_at: string;
   author: string;
 };
 
-export type { DetailedReservation };
+export type DetailedItem = {
+  id: string;
+  name: string;
+  description: string;
+};

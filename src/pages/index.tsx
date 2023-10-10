@@ -33,8 +33,6 @@ const Home = () => {
   }
   return (
     <>
-      <Header />
-
       <div
         style={{
           height: "100vh",
@@ -45,8 +43,8 @@ const Home = () => {
       >
         <Image
           src={kontoret}
-          alt=''
-          layout='fill'
+          alt=""
+          layout="fill"
           style={{
             position: "absolute",
             top: 0,
@@ -62,30 +60,30 @@ const Home = () => {
         <Grid
           container
           spacing={0}
-          direction='column'
-          alignItems='center'
-          justifyContent='center'
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
           sx={{ height: "90vh" }}
         >
           <Paper variant={"outlined"} elevation={5} sx={{ p: 5 }}>
             <Stack spacing={2}>
               <h1>Reserver</h1>
-              <DateTimePicker title='Fra' value={fra} setValue={setFra} />
-              <DateTimePicker title='Til' value={til} setValue={setTil} />
-              <Stack direction='row' spacing={1}>
+              <DateTimePicker title="Fra" value={fra} setValue={setFra} />
+              <DateTimePicker title="Til" value={til} setValue={setTil} />
+              <Stack direction="row" spacing={1}>
                 <Button
                   onClick={() => routeToBooking("kontoret")}
                   sx={{ width: "50%" }}
-                  variant='contained'
-                  size='large'
+                  variant="contained"
+                  size="large"
                 >
                   Kontoret
                 </Button>
                 <Button
                   onClick={() => routeToBooking("soundboks")}
                   sx={{ width: "50%" }}
-                  variant='contained'
-                  size='large'
+                  variant="contained"
+                  size="large"
                 >
                   Soundboks
                 </Button>
@@ -94,15 +92,15 @@ const Home = () => {
           </Paper>
         </Grid>
       </div>
-      <Container maxWidth='xl' sx={{ my: 20 }}>
-        <Typography variant='h2'>Kontoret</Typography>
-        <Paper variant='outlined' sx={{ p: 5 }}>
+      <Container maxWidth="xl" sx={{ my: 20 }}>
+        <Typography variant="h2">Kontoret</Typography>
+        <Paper variant="outlined" sx={{ p: 5 }}>
           <Kalender admin={false} />
         </Paper>
       </Container>
-      <Container maxWidth='xl' sx={{ my: 20 }}>
-        <Typography variant='h2'>Soundboks</Typography>
-        <Paper variant='outlined'>
+      <Container maxWidth="xl" sx={{ my: 20 }}>
+        <Typography variant="h2">Soundboks</Typography>
+        <Paper variant="outlined">
           <Kalender admin={false} />
         </Paper>
       </Container>

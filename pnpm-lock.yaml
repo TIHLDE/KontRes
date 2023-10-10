@@ -37,7 +37,7 @@ dependencies:
     version: 7.2.4(@types/react@18.2.21)
   '@mui/x-date-pickers':
     specifier: ^6.15.0
-    version: 6.15.0(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.14.6)(@mui/system@5.14.8)(@types/react@18.2.21)(dayjs@1.11.10)(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
+    version: 6.15.0(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.14.6)(@mui/system@5.14.8)(@types/react@18.2.21)(date-fns@2.30.0)(dayjs@1.11.10)(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
   '@types/node':
     specifier: 20.5.7
     version: 20.5.7
@@ -53,6 +53,9 @@ dependencies:
   axios:
     specifier: ^1.5.1
     version: 1.5.1
+  date-fns:
+    specifier: ^2.30.0
+    version: 2.30.0
   dayjs:
     specifier: ^1.11.10
     version: 1.11.10
@@ -86,11 +89,6 @@ dependencies:
   typescript:
     specifier: 5.2.2
     version: 5.2.2
-
-devDependencies:
-  '@types/axios':
-    specifier: ^0.14.0
-    version: 0.14.0
 
 packages:
 
@@ -214,7 +212,7 @@ packages:
       '@mui/icons-material': 5.14.6(@mui/material@5.14.6)(@types/react@18.2.21)(react@18.2.0)
       '@mui/lab': 5.0.0-alpha.146(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.14.6)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)
       '@mui/material': 5.14.6(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)
-      '@mui/x-date-pickers': 6.15.0(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.14.6)(@mui/system@5.14.8)(@types/react@18.2.21)(dayjs@1.11.10)(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
+      '@mui/x-date-pickers': 6.15.0(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.14.6)(@mui/system@5.14.8)(@types/react@18.2.21)(date-fns@2.30.0)(dayjs@1.11.10)(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0)
       clsx: 1.2.1
       moment: 2.29.4
       prop-types: 15.8.1
@@ -252,7 +250,7 @@ packages:
     resolution: {integrity: sha512-m4HEDZleaaCH+XgDDsPF15Ht6wTLsgDTeR3WYj9Q/k76JtWhrJjcP4+/XlG8LGT/Rol9qUfOIztXeA84ATpqPQ==}
     dependencies:
       '@babel/helper-module-imports': 7.22.5
-      '@babel/runtime': 7.22.11
+      '@babel/runtime': 7.23.1
       '@emotion/hash': 0.9.1
       '@emotion/memoize': 0.8.1
       '@emotion/serialize': 1.1.2
@@ -813,7 +811,7 @@ packages:
       react-is: 18.2.0
     dev: false
 
-  /@mui/x-date-pickers@6.15.0(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.14.6)(@mui/system@5.14.8)(@types/react@18.2.21)(dayjs@1.11.10)(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0):
+  /@mui/x-date-pickers@6.15.0(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.14.6)(@mui/system@5.14.8)(@types/react@18.2.21)(date-fns@2.30.0)(dayjs@1.11.10)(moment@2.29.4)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-ubo5SBGe5qPU3F7/mMOa/Yb52GggLGvROCe3HdlatD6LebsxqsERsI2O8aLqwUwIb1AAX2GeiJLdvNBPCQ8xpQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -859,6 +857,7 @@ packages:
       '@mui/utils': 5.14.8(react@18.2.0)
       '@types/react-transition-group': 4.4.6
       clsx: 2.0.0
+      date-fns: 2.30.0
       dayjs: 1.11.10
       moment: 2.29.4
       prop-types: 15.8.1
@@ -1023,15 +1022,6 @@ packages:
     dependencies:
       tslib: 2.6.2
     dev: false
-
-  /@types/axios@0.14.0:
-    resolution: {integrity: sha512-KqQnQbdYE54D7oa/UmYVMZKq7CO4l8DEENzOKc4aBRwxCXSlJXGz83flFx5L7AWrOQnmuN3kVsRdt+GZPPjiVQ==}
-    deprecated: This is a stub types definition for axios (https://github.com/mzabriskie/axios). axios provides its own type definitions, so you don't need @types/axios installed!
-    dependencies:
-      axios: 1.5.1
-    transitivePeerDependencies:
-      - debug
-    dev: true
 
   /@types/json5@0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
@@ -1298,6 +1288,7 @@ packages:
 
   /asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
+    dev: false
 
   /autoprefixer@10.4.15(postcss@8.4.28):
     resolution: {integrity: sha512-KCuPB8ZCIqFdA4HwKXsvz7j6gvSDNhDP7WnUjBleRkKjPdvCmHFuQ77ocavI8FT6NdvlBnE2UFr2H4Mycn8Vew==}
@@ -1333,6 +1324,7 @@ packages:
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
+    dev: false
 
   /axobject-query@3.2.1:
     resolution: {integrity: sha512-jsyHu61e6N4Vbz/v18DHwWYKK0bSWLqn47eeDSKPB7m8tqMHF9YJ+mhIk2lVteyZrY8tnSj/jHOv4YiTCuCJgg==}
@@ -1501,6 +1493,7 @@ packages:
     engines: {node: '>= 0.8'}
     dependencies:
       delayed-stream: 1.0.0
+    dev: false
 
   /commander@4.1.1:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
@@ -1549,6 +1542,13 @@ packages:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
     dev: false
 
+  /date-fns@2.30.0:
+    resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
+    engines: {node: '>=0.11'}
+    dependencies:
+      '@babel/runtime': 7.23.1
+    dev: false
+
   /dayjs@1.11.10:
     resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
     dev: false
@@ -1591,6 +1591,7 @@ packages:
   /delayed-stream@1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
+    dev: false
 
   /dequal@2.0.3:
     resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
@@ -2112,6 +2113,7 @@ packages:
     peerDependenciesMeta:
       debug:
         optional: true
+    dev: false
 
   /for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
@@ -2126,6 +2128,7 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
+    dev: false
 
   /fraction.js@4.2.1:
     resolution: {integrity: sha512-/KxoyCnPM0GwYI4NN0Iag38Tqt+od3/mLuguepLgCAKPn0ZhC544nssAW0tG2/00zXEYl9W+7hwAIpLHo6Oc7Q==}
@@ -2673,12 +2676,14 @@ packages:
   /mime-db@1.52.0:
     resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
     engines: {node: '>= 0.6'}
+    dev: false
 
   /mime-types@2.1.35:
     resolution: {integrity: sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==}
     engines: {node: '>= 0.6'}
     dependencies:
       mime-db: 1.52.0
+    dev: false
 
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
@@ -3038,6 +3043,7 @@ packages:
 
   /proxy-from-env@1.1.0:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
+    dev: false
 
   /punycode@2.3.0:
     resolution: {integrity: sha512-rRV+zQD8tVFys26lAGR9WUuS4iUAngJScM+ZRSKtvl5tKeZ2t5bvdNFdNHBW9FWR4guGHlgmsZ1G7BSm2wTbuA==}
