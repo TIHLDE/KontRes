@@ -1,24 +1,11 @@
 import { getReservation } from "@/apis/reservations/reservations";
 import { DetailedReservation } from "@/apis/reservations/types";
 import Page from "@/components/Page";
-import {
-  Button,
-  CircularProgress,
-  Divider,
-  Grid,
-  Paper,
-  PaperProps,
-  Stack,
-  Typography,
-} from "@mui/material";
-import CheckIcon from "@mui/icons-material/Check";
-import CloseIcon from "@mui/icons-material/Close";
-import { Box } from "@mui/system";
+import { CircularProgress, Grid, Stack } from "@mui/material";
 import { useQuery } from "react-query";
-import { parseISO } from "date-fns";
-import { formatDate } from "@/utils/date";
 import InformationBox from "./InformationBox";
 import ReservationDescription from "./ReservationDescription";
+import AdminActions from "./AdminActions";
 
 interface ReservationProps {
   reservationId: string;
@@ -75,31 +62,6 @@ const Reservation = ({ reservation, reservationId }: ReservationProps) => {
         </Grid>
       </Grid>
     </Page>
-  );
-};
-
-const AdminActions = () => {
-  return (
-    <Paper variant="outlined" sx={{ paddingX: 2, paddingY: 2 }}>
-      <Stack direction={"row"} gap={1} width={"100%"}>
-        <Button
-          variant="contained"
-          startIcon={<CheckIcon />}
-          color="success"
-          fullWidth
-        >
-          Godkjenn
-        </Button>
-        <Button
-          variant="contained"
-          startIcon={<CloseIcon />}
-          color="error"
-          fullWidth
-        >
-          Avslå
-        </Button>
-      </Stack>
-    </Paper>
   );
 };
 
