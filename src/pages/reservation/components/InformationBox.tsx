@@ -23,7 +23,7 @@ const InformationBox = ({
       minWidth={210}
       width={"100%"}
       px={2}
-      py={1}
+      py={3}
       gap={1}
       component={({ ...props }: PaperProps) => (
         <Paper {...props} variant="outlined" />

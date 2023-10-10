@@ -2,13 +2,17 @@ import { getReservation } from "@/apis/reservations/reservations";
 import { DetailedReservation } from "@/apis/reservations/types";
 import Page from "@/components/Page";
 import {
+  Button,
   CircularProgress,
+  Divider,
   Grid,
   Paper,
   PaperProps,
   Stack,
   Typography,
 } from "@mui/material";
+import CheckIcon from "@mui/icons-material/Check";
+import CloseIcon from "@mui/icons-material/Close";
 import { Box } from "@mui/system";
 import { useQuery } from "react-query";
 import { parseISO } from "date-fns";
@@ -61,13 +65,41 @@ const Reservation = ({ reservation, reservationId }: ReservationProps) => {
           />
         </Grid>
         <Grid item xs={12} lg={9}>
-          <ReservationDescription
-            description={data?.description as string}
-            itemName={reservation.itemName}
-          />
+          <Stack gap={1}>
+            <ReservationDescription
+              description={data?.description as string}
+              itemName={reservation.itemName}
+            />
+            {true && <AdminActions />}
+          </Stack>
         </Grid>
       </Grid>
     </Page>
+  );
+};
+
+const AdminActions = () => {
+  return (
+    <Paper variant="outlined" sx={{ paddingX: 2, paddingY: 2 }}>
+      <Stack direction={"row"} gap={1} width={"100%"}>
+        <Button
+          variant="contained"
+          startIcon={<CheckIcon />}
+          color="success"
+          fullWidth
+        >
+          Godkjenn
+        </Button>
+        <Button
+          variant="contained"
+          startIcon={<CloseIcon />}
+          color="error"
+          fullWidth
+        >
+          Avslå
+        </Button>
+      </Stack>
+    </Paper>
   );
 };
 
