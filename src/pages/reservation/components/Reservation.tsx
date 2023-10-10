@@ -1,7 +1,14 @@
 import { getReservation } from "@/apis/reservations/reservations";
 import { DetailedReservation } from "@/apis/reservations/types";
 import Page from "@/components/Page";
-import { Grid, Paper, PaperProps, Stack, Typography } from "@mui/material";
+import {
+  CircularProgress,
+  Grid,
+  Paper,
+  PaperProps,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import { useQuery } from "react-query";
 import { parseISO } from "date-fns";
@@ -28,10 +35,24 @@ const Reservation = ({ reservation, reservationId }: ReservationProps) => {
     initialData: reservation,
   });
 
+  // XXX - Maybe show loading skeleton instead of a loading wheel?
+  if (isFetching) {
+    return (
+      <CircularProgress
+        sx={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%,-50%)",
+        }}
+      />
+    );
+  }
+
   return (
     <Page>
       <Grid container spacing={3}>
-        <Grid item xs={3}>
+        <Grid item xs={12} lg={3}>
           <InformationBox
             author={data?.author as string}
             endTime={data?.end_time as string}
@@ -39,7 +60,7 @@ const Reservation = ({ reservation, reservationId }: ReservationProps) => {
             state={data?.state as DetailedReservation["state"]}
           />
         </Grid>
-        <Grid item xs={9}>
+        <Grid item xs={12} lg={9}>
           <ReservationDescription
             description={data?.description as string}
             itemName={reservation.itemName}
