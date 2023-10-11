@@ -22,7 +22,7 @@ export const getServerSideProps = (async ({ params }) => {
   const reservation = await getReservation(params?.id + "");
   const items = await getItem(reservation.data.bookable_item);
   const item = items.data.filter(
-    (e) => e.id === reservation.data.bookable_item
+    (e) => e.id === reservation.data.bookable_item,
   )?.[0];
 
   return {

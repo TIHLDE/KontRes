@@ -20,14 +20,14 @@ const Home = () => {
         "/kontoret?start=" +
           fra.format("HH.mm-DD-MM-YYYY") +
           "&slutt=" +
-          til.format("HH.mm-DD-MM-YYYY")
+          til.format("HH.mm-DD-MM-YYYY"),
       );
     } else if (type === "soundboks") {
       router.push(
         "/soundboks?start=" +
           fra.format("HH.mm-DD-MM-YYYY") +
           "&slutt=" +
-          til.format("HH.mm-DD-MM-YYYY")
+          til.format("HH.mm-DD-MM-YYYY"),
       );
     }
   }

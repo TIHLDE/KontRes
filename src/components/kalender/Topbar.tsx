@@ -58,16 +58,16 @@ export default function Topbar({
         sx={{ mb: 5 }}
       >
         <ToggleButtonGroup
-          color='primary'
+          color="primary"
           exclusive
           value={viewBy}
           onChange={(event: React.MouseEvent<HTMLElement>, newVal: string) =>
             setViewBy(newVal)
           }
-          aria-label='Platform'
+          aria-label="Platform"
         >
-          <ToggleButton value='day'>Dag</ToggleButton>
-          <ToggleButton value='week'>Uke</ToggleButton>
+          <ToggleButton value="day">Dag</ToggleButton>
+          <ToggleButton value="week">Uke</ToggleButton>
         </ToggleButtonGroup>
       </Stack>
       <Stack

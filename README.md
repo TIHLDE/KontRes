@@ -1,8 +1,6 @@
-
 # KontRes
 
 This is a simple page which is used to book TIHLDE's office!
-
 
 ## 🔧 Tech Stack
 
@@ -12,8 +10,6 @@ This is a simple page which is used to book TIHLDE's office!
 - Typescript
 - Tailwind (?)
 - Probably some more :)
-
-
 
 ## ❤ Contributing
 
