@@ -42,12 +42,12 @@ export default function Page({ props }: PageProps) {
   const [start, setStart] = useState<dayjs.Dayjs>(
     searchParams.get("start")
       ? dayjs(searchParams.get("start"), "HH.mm-DD-MM-YYYY")
-      : dayjs(),
+      : dayjs()
   );
   const [slutt, setSlutt] = useState<dayjs.Dayjs>(
     searchParams.get("slutt")
       ? dayjs(searchParams.get("slutt"), "HH.mm-DD-MM-YYYY")
-      : dayjs(),
+      : dayjs()
   );
   const [title, setTitle] = useState<string>("");
   const [desc, setDesc] = useState<string>("");
@@ -59,11 +59,11 @@ export default function Page({ props }: PageProps) {
       if (
         (start.isBetween(
           dayjs(booking.start, "HH.mm-DD-MM-YYYY"),
-          dayjs(booking.end, "HH.mm-DD-MM-YYYY"),
+          dayjs(booking.end, "HH.mm-DD-MM-YYYY")
         ) ||
           !slutt.isBetween(
             dayjs(booking.start, "HH.mm-DD-MM-YYYY"),
-            dayjs(booking.end, "HH.mm-DD-MM-YYYY"),
+            dayjs(booking.end, "HH.mm-DD-MM-YYYY")
           ) ||
           !(
             start.isBefore(dayjs(booking.start, "HH.mm-DD-MM-YYYY")) &&
