@@ -65,7 +65,7 @@ const Home = () => {
           justifyContent="center"
           sx={{ height: "90vh" }}
         >
-          <Paper variant={"outlined"} elevation={5} sx={{ p: 5 }}>
+          <Paper elevation={5} sx={{ p: 5 }}>
             <Stack spacing={2}>
               <h1>Reserver</h1>
               <DateTimePicker title="Fra" value={fra} setValue={setFra} />
