@@ -19,7 +19,7 @@ export const formatDate = (
     fullMonth?: boolean;
     fullDayOfWeek?: boolean;
     capitalizeFirstLetter?: boolean;
-  } = {}
+  } = {},
 ) => {
   const isDifferentYear = date.getFullYear() !== new Date().getFullYear();
   const formatDateString = `${fullDayOfWeek ? "EEEE" : "E"} do ${

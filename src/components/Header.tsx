@@ -42,8 +42,8 @@ export const Header = () => {
 
   return (
     <AppBar
-      position='sticky'
-      color='transparent'
+      position="sticky"
+      color="transparent"
       sx={{
         paddingY: ".5rem",
       }}
@@ -53,29 +53,29 @@ export const Header = () => {
       }}
       elevation={opaque ? 4 : 0}
     >
-      <Toolbar variant='regular'>
-        <Link href='/'>
+      <Toolbar variant="regular">
+        <Link href="/">
           <Logo />
         </Link>
-        <Link sx={{ mx: 4, ml: 8 }} href='/kontoret'>
+        <Link sx={{ mx: 4, ml: 8 }} href="/kontoret">
           Kontoret
         </Link>
-        <Link sx={{ color: "text.primary", mx: 4 }} href='/soundboks'>
+        <Link sx={{ color: "text.primary", mx: 4 }} href="/soundboks">
           Soundboks
         </Link>
         <IconButton
-          size='large'
-          color='inherit'
-          aria-label='lightmode'
+          size="large"
+          color="inherit"
+          aria-label="lightmode"
           sx={{ mx: 1, ml: "auto" }}
         >
           <LightModeIcon />
         </IconButton>
-        <Link href='/login'>
+        <Link href="/login">
           <IconButton
-            size='large'
-            color='inherit'
-            aria-label='user'
+            size="large"
+            color="inherit"
+            aria-label="user"
             sx={{ mx: 1 }}
           >
             <PersonIcon />
