@@ -7,7 +7,7 @@ const Home = (
   return (
     <div
       style={{
-        minHeight: "150vh",
+        minHeight: '150vh',
       }}
     >
       <Header />
