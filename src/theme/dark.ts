@@ -1,4 +1,4 @@
-import { PaletteColorOptions, createTheme } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
 
 // Redefine the palette color options to include custom colors
 declare module "@mui/material/styles" {
@@ -33,6 +33,7 @@ declare module "@mui/material/styles" {
     six: PaletteOptions["primary"];
     seven: PaletteOptions["primary"];
     eight: PaletteOptions["primary"];
+    borderColor: PaletteOptions["primary"];
   }
 
   interface PaletteColor {
@@ -44,7 +45,7 @@ declare module "@mui/material/styles" {
   }
 }
 
-const dark = createTheme({
+export const dark = createTheme({
   palette: {
     mode: "dark",
     primary: {
@@ -79,7 +80,9 @@ const dark = createTheme({
     info: {
       main: "#fff",
     },
-
+    borderColor: {
+      main: "#0d2339",
+    },
     background: { default: "#001328", paper: "#011830" },
     text: {
       primary: "#fff",
@@ -114,7 +117,7 @@ const dark = createTheme({
     },
     h3: {
       fontSize: "1.5rem",
-      fontWeight: "bold",
+      fontWeight: "normal",
       marginTop: "1.5rem",
       marginBottom: "0.75rem",
     },
@@ -136,7 +139,7 @@ const dark = createTheme({
       defaultProps: { maxWidth: "lg" },
     },
     MuiButton: {
-      styleOverrides: { root: { fontWeight: 300 } },
+      styleOverrides: { root: { fontWeight: 500 } },
     },
     MuiLink: {
       styleOverrides: { root: { color: "#9ec0ff" } },
@@ -155,5 +158,3 @@ const dark = createTheme({
     },
   },
 });
-
-export default dark;
