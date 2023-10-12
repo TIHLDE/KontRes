@@ -1,17 +1,13 @@
-import { Box } from "@mui/system";
-import LogoSvg from "./Logo.svg";
 import Image from "next/image";
-import { ComponentProps } from "react";
+import LogoSvg from "./Logo.svg";
 
-export default function Logo({ ...props }: ComponentProps<typeof Box>) {
+export default function Logo() {
   return (
-    <Box
-      {...props}
-      sx={{
-        height: "fit-content",
-      }}
-    >
-      <Image src={LogoSvg} width={150} alt="Tihldes logo" className="invert" />
-    </Box>
+    <Image
+      src={LogoSvg}
+      width={150}
+      alt='Tihldes logo'
+      style={{ filter: "invert(1)", marginBottom: -8 }}
+    />
   );
 }
