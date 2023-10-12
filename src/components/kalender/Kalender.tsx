@@ -133,7 +133,7 @@ export const Kalender = ({ admin, full }: KalenderProps) => {
       </Container>
       <Stack justifyContent={"end"}>
         <Button
-          variant='contained'
+          variant="contained"
           endIcon={fullSize ? <RemoveIcon /> : <AddIcon />}
           style={{ marginLeft: "auto" }}
         >

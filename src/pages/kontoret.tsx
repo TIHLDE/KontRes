@@ -80,44 +80,43 @@ export default function Page({ props }: PageProps) {
   }, [start, slutt, desc, title]);
   return (
     <>
-      <Header />
       <Container
         maxWidth={"xl"}
         style={{ display: "grid", gridTemplateColumns: "1fr 3fr", gap: 8 }}
         sx={{ my: 1 }}
       >
-        <Paper variant='outlined' sx={{ p: 3 }}>
+        <Paper variant="outlined" sx={{ p: 3 }}>
           <Stack gap={1}>
-            <Typography variant='h3' textAlign={"center"}>
+            <Typography variant="h3" textAlign={"center"}>
               Reserver kontoret
             </Typography>
-            <DateTimePicker title='Fra' value={start} setValue={setStart} />
-            <DateTimePicker title='Til' value={slutt} setValue={setSlutt} />
+            <DateTimePicker title="Fra" value={start} setValue={setStart} />
+            <DateTimePicker title="Til" value={slutt} setValue={setSlutt} />
             <TextField
-              id='title'
-              label='Tittel'
-              placeholder='Tittel'
+              id="title"
+              label="Tittel"
+              placeholder="Tittel"
               value={title}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setTitle(e.target.value);
               }}
             />
             <TextField
-              id='description'
-              label='Beskrivelse'
-              placeholder='Beskrivelse'
+              id="description"
+              label="Beskrivelse"
+              placeholder="Beskrivelse"
               value={desc}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setDesc(e.target.value);
               }}
               multiline
             />
-            <Button variant='contained' size='large' disabled={!available}>
+            <Button variant="contained" size="large" disabled={!available}>
               RESERVÉR
             </Button>
           </Stack>
         </Paper>
-        <Paper variant='outlined'>
+        <Paper variant="outlined">
           <Kalender admin={false} />
         </Paper>
       </Container>
