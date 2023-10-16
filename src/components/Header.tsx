@@ -28,31 +28,14 @@ export const Header = ({ items }: HeaderProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY !== 0 && opaque) setOpaque(false);
-      else if (window.scrollY === 0 && !opaque) setOpaque(true);
+      if (window.scrollY > 0 && !opaque) setOpaque(true);
+      else if (window.scrollY === 0 && opaque) setOpaque(false);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    const scrollHandler = () => {
-      const scroll = window.scrollY;
-      if (scroll > 0 && !opaque) {
-        setOpaque(true);
-      } else if (scroll == 0 && opaque) {
-        setOpaque(false);
-      }
-    };
-
-    window.addEventListener("scroll", scrollHandler);
-
-    return () => {
-      window.removeEventListener("scroll", scrollHandler);
     };
   });
 
