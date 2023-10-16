@@ -26,12 +26,12 @@ export const Header = ({ items }: HeaderProps) => {
   const [opaque, setOpaque] = useState(false);
   const router = useRouter();
 
-  const handleScroll = () => {
-    if (window.scrollY !== 0 && opaque) setOpaque(false);
-    else if (window.scrollY === 0 && !opaque) setOpaque(true);
-  };
-
   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY !== 0 && opaque) setOpaque(false);
+      else if (window.scrollY === 0 && !opaque) setOpaque(true);
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
@@ -80,12 +80,13 @@ export const Header = ({ items }: HeaderProps) => {
           }}
           gap={4}
         >
-          {items?.map((item) => (
+          {items?.map((item, index) => (
             <ItemButton
               href={item.href}
               typographyProps={{
                 textTransform: "capitalize",
               }}
+              key={index}
             >
               {item.displayName}
             </ItemButton>
