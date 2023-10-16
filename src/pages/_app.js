@@ -1,15 +1,9 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { dark } from "../theme/dark";
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Box } from "@mui/material";
-import { Header } from "@/components/Header";
-import { getItems } from "@/apis/reservations/reservations";
-import Page from "@/components/Page";
+import SiteWrapper from "@/components/SiteWrapper";
 
 export default function App({ Component, pageProps }) {
   const queryClient = new QueryClient();
@@ -23,9 +17,9 @@ export default function App({ Component, pageProps }) {
             paddingTop: 0,
           }}
         >
-          <Page>
+          <SiteWrapper>
             <Component {...pageProps} />
-          </Page>
+          </SiteWrapper>
         </Box>
       </QueryClientProvider>
     </ThemeProvider>

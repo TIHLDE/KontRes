@@ -6,20 +6,8 @@ import { getItems } from "@/apis/reservations/reservations";
 const Page = ({ children, sx, ...props }: ContainerProps) => {
   const theme = useTheme();
 
-  const { data, isFetching } = useQuery({
-    queryKey: ["items"],
-    queryFn: () => getItems().then((res) => res.data),
-  });
   return (
     <>
-      <Header
-        items={data?.map((e) => {
-          return {
-            displayName: e.name,
-            onClick: () => console.log("ok"),
-          };
-        })}
-      />
       <Container
         sx={{
           paddingX: {

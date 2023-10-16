@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import { AppBar, IconButton, Stack, Toolbar } from "@mui/material";
 import { LinkButton, CustomLinkProps } from "./LinkButton";
-import { LinkProps } from "next/link";
 import Logo from "./Logo";
+import { useRouter } from "next/router";
 
 type ReservationItem = {
   displayName: string;
@@ -24,6 +24,7 @@ const ItemButton = ({ children, ...props }: CustomLinkProps) => {
 
 export const Header = ({ items }: HeaderProps) => {
   const [opaque, setOpaque] = useState(false);
+  const router = useRouter();
 
   const handleScroll = () => {
     if (window.scrollY !== 0 && opaque) setOpaque(false);
@@ -67,7 +68,11 @@ export const Header = ({ items }: HeaderProps) => {
       elevation={opaque ? 4 : 0}
     >
       <Toolbar variant="regular">
-        <Logo />
+        <Logo
+          onClick={() => {
+            router.push("/");
+          }}
+        />
         <Stack
           direction={"row"}
           sx={{
