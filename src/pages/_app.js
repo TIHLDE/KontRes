@@ -12,15 +12,9 @@ export default function App({ Component, pageProps }) {
     <ThemeProvider theme={dark}>
       <CssBaseline />
       <QueryClientProvider client={queryClient}>
-        <Box
-          sx={{
-            paddingTop: 0,
-          }}
-        >
-          <SiteWrapper>
-            <Component {...pageProps} />
-          </SiteWrapper>
-        </Box>
+        <SiteWrapper>
+          <Component {...pageProps} />
+        </SiteWrapper>
       </QueryClientProvider>
     </ThemeProvider>
   );

@@ -22,7 +22,7 @@ interface ReservationProps {
 const Reservation = ({ reservation, reservationId }: ReservationProps) => {
   const { data, isFetching, isError } = useQuery({
     queryKey: ["reservation"],
-    queryFn: () => getReservation(reservationId).then((res) => res.data),
+    queryFn: async () => (await getReservation(reservationId)).data,
     initialData: reservation,
   });
 

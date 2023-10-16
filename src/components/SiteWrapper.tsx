@@ -8,8 +8,8 @@ import { useQuery } from "@tanstack/react-query";
  */
 const SiteWrapper = ({ children }: { children: any }) => {
   const { data } = useQuery({
-    queryKey: ["items"],
-    queryFn: () => getItems().then((res) => res.data),
+    queryKey: ["bookable_items"],
+    queryFn: async () => (await getItems()).data,
   });
 
   return (
