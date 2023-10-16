@@ -7,9 +7,24 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import { AppBar, IconButton, Toolbar } from "@mui/material";
 import { Link } from "./Link";
 import Logo from "./Logo";
+import { LinkProps } from "next/link";
 
-export const Header = () => {
+type ReservationItem = {
+  displayName: string;
+  onClick: () => void;
+};
+
+interface HeaderProps {
+  items: ReservationItem[];
+}
+
+const ItemButton = ({ ...props }: LinkProps) => {
+  return <Link>adasd</Link>;
+};
+
+export const Header = ({ items }: HeaderProps) => {
   const [opaque, setOpaque] = useState(false);
+
   const handleScroll = () => {
     if (window.scrollY !== 0 && opaque) setOpaque(false);
     else if (window.scrollY === 0 && !opaque) setOpaque(true);
@@ -42,8 +57,8 @@ export const Header = () => {
 
   return (
     <AppBar
-      position='sticky'
-      color='transparent'
+      position="sticky"
+      color="transparent"
       sx={{
         paddingY: ".5rem",
       }}
@@ -53,29 +68,29 @@ export const Header = () => {
       }}
       elevation={opaque ? 4 : 0}
     >
-      <Toolbar variant='regular'>
-        <Link href='/'>
+      <Toolbar variant="regular">
+        <Link href="/">
           <Logo />
         </Link>
-        <Link sx={{ mx: 4, ml: 8 }} href='/kontoret'>
+        <Link sx={{ mx: 4, ml: 8 }} href="/kontoret">
           Kontoret
         </Link>
-        <Link sx={{ color: "text.primary", mx: 4 }} href='/soundboks'>
+        <Link sx={{ color: "text.primary", mx: 4 }} href="/soundboks">
           Soundboks
         </Link>
         <IconButton
-          size='large'
-          color='inherit'
-          aria-label='lightmode'
+          size="large"
+          color="inherit"
+          aria-label="lightmode"
           sx={{ mx: 1, ml: "auto" }}
         >
           <LightModeIcon />
         </IconButton>
-        <Link href='/login'>
+        <Link href="/login">
           <IconButton
-            size='large'
-            color='inherit'
-            aria-label='user'
+            size="large"
+            color="inherit"
+            aria-label="user"
             sx={{ mx: 1 }}
           >
             <PersonIcon />
