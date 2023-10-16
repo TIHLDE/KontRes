@@ -5,9 +5,7 @@ import { useEffect, useState } from "react";
 // Material
 import LightModeIcon from "@mui/icons-material/LightMode";
 import { AppBar, IconButton, Toolbar } from "@mui/material";
-import { Link } from "./Link";
-import Logo from "./Logo";
-import { LinkProps } from "next/link";
+import { LinkButton, LinkProps } from "./LinkButton";
 
 type ReservationItem = {
   displayName: string;
@@ -18,8 +16,8 @@ interface HeaderProps {
   items: ReservationItem[];
 }
 
-const ItemButton = ({ ...props }: LinkProps) => {
-  return <Link>adasd</Link>;
+const ItemButton = ({ children, ...props }: LinkProps) => {
+  return <LinkButton {...props}>{children}</LinkButton>;
 };
 
 export const Header = ({ items }: HeaderProps) => {
@@ -69,15 +67,6 @@ export const Header = ({ items }: HeaderProps) => {
       elevation={opaque ? 4 : 0}
     >
       <Toolbar variant="regular">
-        <Link href="/">
-          <Logo />
-        </Link>
-        <Link sx={{ mx: 4, ml: 8 }} href="/kontoret">
-          Kontoret
-        </Link>
-        <Link sx={{ color: "text.primary", mx: 4 }} href="/soundboks">
-          Soundboks
-        </Link>
         <IconButton
           size="large"
           color="inherit"
@@ -86,7 +75,7 @@ export const Header = ({ items }: HeaderProps) => {
         >
           <LightModeIcon />
         </IconButton>
-        <Link href="/login">
+        {/*         <Link href="/login">
           <IconButton
             size="large"
             color="inherit"
@@ -95,7 +84,7 @@ export const Header = ({ items }: HeaderProps) => {
           >
             <PersonIcon />
           </IconButton>
-        </Link>
+        </Link> */}
       </Toolbar>
     </AppBar>
   );
