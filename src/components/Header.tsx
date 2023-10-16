@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 
 type ReservationItem = {
   displayName: string;
-  onClick: () => void;
+  href: string;
 };
 
 interface HeaderProps {
@@ -82,7 +82,7 @@ export const Header = ({ items }: HeaderProps) => {
         >
           {items?.map((item) => (
             <ItemButton
-              href={"#"}
+              href={item.href}
               typographyProps={{
                 textTransform: "capitalize",
               }}

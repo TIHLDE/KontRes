@@ -18,7 +18,7 @@ const SiteWrapper = ({ children }: { children: any }) => {
         items={data?.map((e) => {
           return {
             displayName: e.name,
-            onClick: () => console.log("ok"),
+            href: "#",
           };
         })}
       />
