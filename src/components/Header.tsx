@@ -4,8 +4,10 @@ import PersonIcon from "@mui/icons-material/Person";
 import { useEffect, useState } from "react";
 // Material
 import LightModeIcon from "@mui/icons-material/LightMode";
-import { AppBar, IconButton, Toolbar } from "@mui/material";
-import { LinkButton, LinkProps } from "./LinkButton";
+import { AppBar, IconButton, Stack, Toolbar } from "@mui/material";
+import { LinkButton, CustomLinkProps } from "./LinkButton";
+import { LinkProps } from "next/link";
+import Logo from "./Logo";
 
 type ReservationItem = {
   displayName: string;
@@ -13,10 +15,10 @@ type ReservationItem = {
 };
 
 interface HeaderProps {
-  items: ReservationItem[];
+  items?: ReservationItem[];
 }
 
-const ItemButton = ({ children, ...props }: LinkProps) => {
+const ItemButton = ({ children, ...props }: CustomLinkProps) => {
   return <LinkButton {...props}>{children}</LinkButton>;
 };
 
@@ -59,14 +61,32 @@ export const Header = ({ items }: HeaderProps) => {
       color="transparent"
       sx={{
         paddingY: ".5rem",
-      }}
-      style={{
         backdropFilter: opaque ? "blur(7.2px)" : "unset",
-        backgroundColor: opaque ? "rgba(8,25,48, 0.6)" : "unset",
+        backgroundColor: opaque ? "rgba(8,25,48,0.6)" : "unset",
       }}
       elevation={opaque ? 4 : 0}
     >
       <Toolbar variant="regular">
+        <Logo />
+        <Stack
+          direction={"row"}
+          sx={{
+            ml: 6,
+          }}
+          gap={4}
+        >
+          {items?.map((item) => (
+            <ItemButton
+              href={"#"}
+              typographyProps={{
+                textTransform: "capitalize",
+              }}
+            >
+              {item.displayName}
+            </ItemButton>
+          ))}
+        </Stack>
+
         <IconButton
           size="large"
           color="inherit"
@@ -75,7 +95,7 @@ export const Header = ({ items }: HeaderProps) => {
         >
           <LightModeIcon />
         </IconButton>
-        {/*         <Link href="/login">
+        <LinkButton href="/login">
           <IconButton
             size="large"
             color="inherit"
@@ -84,7 +104,7 @@ export const Header = ({ items }: HeaderProps) => {
           >
             <PersonIcon />
           </IconButton>
-        </Link> */}
+        </LinkButton>
       </Toolbar>
     </AppBar>
   );

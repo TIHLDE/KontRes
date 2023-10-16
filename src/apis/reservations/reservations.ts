@@ -14,3 +14,9 @@ export const getItem = (uuid: string) => {
     baseURL: baseUrl,
   });
 };
+
+export const getItems = () => {
+  return axios.get<DetailedItem[]>("/kontres/bookable_items/", {
+    baseURL: baseUrl,
+  });
+};
