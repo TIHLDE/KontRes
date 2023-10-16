@@ -7,8 +7,10 @@ export interface CustomLinkProps extends LinkProps {
   children?: React.ReactNode;
 }
 
-//hydration error fordi vi nester to a tags
-//ikke bruk Mui Link
+/*
+  Hydration error fordi vi nester to a tags
+  ikke bruk Mui Link
+*/
 export const LinkButton = ({
   children,
   typographyProps,
