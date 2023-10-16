@@ -1,5 +1,5 @@
 import { Typography, TypographyProps } from "@mui/material";
-import Link, { LinkProps } from "next/Link";
+import Link, { LinkProps } from "next/link";
 
 export interface CustomLinkProps extends LinkProps {
   href: string;
