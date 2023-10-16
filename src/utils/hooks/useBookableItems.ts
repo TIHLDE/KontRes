@@ -4,7 +4,7 @@ import { QueryOptions, useQuery } from "@tanstack/react-query";
 
 type UseBookableItemsProps = {
   uuid?: string;
-} & QueryOptions<DetailedItem[], unknown>;
+} & QueryOptions<DetailedItem[], unknown>; // <= We invoke QueryOptions to infer the function argument types of the useQuery hook!
 
 /**
  * A simple hook that optionally uses a UUID to fetch either all, or a subset of all
@@ -21,7 +21,7 @@ const useBookableItems = ({ uuid, ...options }: UseBookableItemsProps) => {
     ...options,
   });
 
-  return obj;
+  return obj; // <= Returns an object with all the normal useQuery return values 🎉
 };
 
 export default useBookableItems;

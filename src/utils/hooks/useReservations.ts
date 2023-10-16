@@ -4,8 +4,13 @@ import { QueryOptions, useQuery } from "@tanstack/react-query";
 
 type UseReservationItemsProps = {
   uuid: string;
-} & QueryOptions<DetailedReservation, unknown>;
+} & QueryOptions<DetailedReservation, unknown>; // <= We invoke QueryOptions to infer the function argument types of the useQuery hook!
 
+/**
+ * A simple hook that uses a UUID to fetch a specific reservation.
+ *
+ * @returns The reservation with a matching UUID
+ */
 const useReservations = ({ uuid, ...options }: UseReservationItemsProps) => {
   const obj = useQuery({
     queryKey: ["reservation_item"],
@@ -13,7 +18,7 @@ const useReservations = ({ uuid, ...options }: UseReservationItemsProps) => {
     ...options,
   });
 
-  return obj;
+  return obj; // <= Returns an object with all the normal useQuery return values 🎉
 };
 
 export default useReservations;
