@@ -1,27 +1,26 @@
 import { Container, ContainerProps, useTheme } from "@mui/material";
-import { Header } from "./Header";
-import { useQuery } from "@tanstack/react-query";
-import { getItems } from "@/apis/reservations/reservations";
 
+/**
+ * Component used to wrap each new page. If someone (a developer) wants to create a
+ * new subpage within the website, the page must be wrapped within this component.
+ * It provides adequate padding for the content.
+ */
 const Page = ({ children, sx, ...props }: ContainerProps) => {
-  const theme = useTheme();
-
   return (
-    <>
-      <Container
-        sx={{
-          paddingX: {
-            xl: 3,
-            lg: 3,
-            md: 2,
-            sm: 1,
-          },
-        }}
-        {...props}
-      >
-        {children}
-      </Container>
-    </>
+    <Container
+      sx={{
+        paddingX: {
+          xl: 3,
+          lg: 3,
+          md: 2,
+          sm: 1,
+        },
+        ...sx,
+      }}
+      {...props}
+    >
+      {children}
+    </Container>
   );
 };
 

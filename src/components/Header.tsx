@@ -18,6 +18,10 @@ interface HeaderProps {
   items?: ReservationItem[];
 }
 
+/**
+ * Simple component that wraps the nextjs link component. It is used to display bookable items
+ * in the header.
+ */
 const ItemButton = ({ children, ...props }: CustomLinkProps) => {
   return <LinkButton {...props}>{children}</LinkButton>;
 };
