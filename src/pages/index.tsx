@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { DateTimePicker } from "../components/DateTimePicker";
-import { Header } from "../components/Header";
 import { Kalender } from "../components/kalender/Kalender";
 import kontoret from "../media/kontoret.jpg";
 

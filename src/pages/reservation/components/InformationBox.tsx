@@ -37,8 +37,14 @@ const InformationBox = ({
       >
         Detaljer
       </Typography>
-      <DetailText label="Fra:" value={formatDate(parseISO(startTime))} />
-      <DetailText label="Til:" value={formatDate(parseISO(endTime))} />
+      <DetailText
+        label="Fra:"
+        value={startTime ? formatDate(parseISO(startTime)) : ""}
+      />
+      <DetailText
+        label="Til:"
+        value={endTime ? formatDate(parseISO(endTime)) : ""}
+      />
       <DetailText
         label="Status:"
         value={state === "CONFIRMED" ? "Innvilget" : "Venter"}

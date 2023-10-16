@@ -11,7 +11,6 @@ import isBetween from "dayjs/plugin/isBetween";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { DateTimePicker } from "../components/DateTimePicker";
-import { Header } from "../components/Header";
 import { Kalender } from "../components/kalender/Kalender";
 dayjs.extend(isBetween);
 
