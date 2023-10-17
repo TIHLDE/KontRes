@@ -1,16 +1,12 @@
-import { getItems } from "@/apis/reservations/reservations";
 import { Header } from "./Header";
-import { useQuery } from "@tanstack/react-query";
+import useBookableItems from "@/utils/hooks/useBookableItems";
 
 /**
  * This is a component that wraps the entire content of the page. It adds default components
  * such as the header, and places the rest of the content accordingly.
  */
 const SiteWrapper = ({ children }: { children: any }) => {
-  const { data } = useQuery({
-    queryKey: ["bookable_items"],
-    queryFn: async () => (await getItems()).data,
-  });
+  const { data } = useBookableItems({});
 
   return (
     <>

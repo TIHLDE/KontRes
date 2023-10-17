@@ -1,11 +1,10 @@
-import { getReservation } from "@/apis/reservations/reservations";
 import { DetailedReservation } from "@/apis/reservations/types";
-import { useQuery } from "@tanstack/react-query";
 import Page from "@/components/Page";
 import { CircularProgress, Grid, Stack } from "@mui/material";
 import InformationBox from "./InformationBox";
 import ReservationDescription from "./ReservationDescription";
 import AdminActions from "./AdminActions";
+import useReservations from "@/utils/hooks/useReservations";
 
 interface ReservationProps {
   reservationId: string;
@@ -20,9 +19,8 @@ interface ReservationProps {
  * @returns The page
  */
 const Reservation = ({ reservation, reservationId }: ReservationProps) => {
-  const { data, isFetching, isError } = useQuery({
-    queryKey: ["reservation"],
-    queryFn: async () => (await getReservation(reservationId)).data,
+  const { data, isFetching } = useReservations({
+    uuid: reservationId,
     initialData: reservation,
   });
 
