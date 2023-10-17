@@ -13,26 +13,34 @@ const ReservationSlug = ({
   return (
     <Reservation
       reservationId={id as string}
-      reservation={{ ...reservation, itemName: item.name }}
+      reservation={{ ...reservation, itemName: item?.name ?? "" }}
     />
   );
 };
 
 export const getServerSideProps = (async ({ params }) => {
-  const reservation = await getReservation(params?.id + "");
-  const items = await getItem(reservation.data.bookable_item);
-  const item = items.data.filter(
-    (e) => e.id === reservation.data.bookable_item
-  )?.[0];
+  try {
+    const reservation = await getReservation(params?.id + "");
+    const items = await getItem(reservation.data.bookable_item);
 
-  return {
-    props: {
-      reservation: {
-        ...reservation.data,
+    // The filtering is done because the endpoint for getting a specific item is not implemented yet
+    const item = items.data.filter(
+      (e) => e.id === reservation.data.bookable_item
+    )?.[0];
+
+    return {
+      props: {
+        reservation: {
+          ...reservation.data,
+        },
+        item,
       },
-      item,
-    },
-  };
+    };
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
 }) satisfies GetServerSideProps<{
   reservation: DetailedReservation;
 }>;
