@@ -1,10 +1,10 @@
-import { DetailedReservation } from "@/apis/reservations/types";
-import Page from "@/components/Page";
-import { CircularProgress, Grid, Stack } from "@mui/material";
-import InformationBox from "./InformationBox";
-import ReservationDescription from "./ReservationDescription";
-import AdminActions from "./AdminActions";
-import useReservations from "@/utils/hooks/useReservations";
+import { DetailedReservation } from '@/apis/reservations/types';
+import Page from '@/components/Page';
+import { CircularProgress, Grid, Stack } from '@mui/material';
+import InformationBox from './InformationBox';
+import ReservationDescription from './ReservationDescription';
+import AdminActions from './AdminActions';
+import useReservations from '@/utils/hooks/useReservations';
 
 interface ReservationProps {
   reservationId: string;
@@ -29,10 +29,10 @@ const Reservation = ({ reservation, reservationId }: ReservationProps) => {
     return (
       <CircularProgress
         sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%,-50%)",
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%,-50%)',
         }}
       />
     );
@@ -46,15 +46,12 @@ const Reservation = ({ reservation, reservationId }: ReservationProps) => {
             author={data?.author as string}
             endTime={data?.end_time as string}
             startTime={data?.start_time as string}
-            state={data?.state as DetailedReservation["state"]}
+            state={data?.state as DetailedReservation['state']}
           />
         </Grid>
         <Grid item xs={12} lg={9}>
           <Stack gap={1}>
-            <ReservationDescription
-              description={data?.description as string}
-              itemName={reservation.itemName}
-            />
+            <ReservationDescription description={data?.description as string} itemName={reservation.itemName} />
             {true && <AdminActions />}
           </Stack>
         </Grid>

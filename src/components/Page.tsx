@@ -1,4 +1,4 @@
-import { Container, ContainerProps, useTheme } from "@mui/material";
+import { Container, ContainerProps, useTheme } from '@mui/material';
 
 /**
  * Component used to wrap each new page. If someone (a developer) wants to create a
@@ -17,8 +17,7 @@ const Page = ({ children, sx, ...props }: ContainerProps) => {
         },
         ...sx,
       }}
-      {...props}
-    >
+      {...props}>
       {children}
     </Container>
   );

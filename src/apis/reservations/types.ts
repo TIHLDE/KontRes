@@ -3,7 +3,7 @@ export type DetailedReservation = {
   bookable_item: string;
   start_time: string;
   end_time: string;
-  state: "CONFIRMED" | "PENDING" | "CANCELLED";
+  state: 'CONFIRMED' | 'PENDING' | 'CANCELLED';
   description: string;
   created_at: string;
   author: string;
