@@ -1,7 +1,7 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from '@mui/material/styles';
 
 // Redefine the palette color options to include custom colors
-declare module "@mui/material/styles" {
+declare module '@mui/material/styles' {
   interface PaletteColorOptions {
     main?: string;
     light?: string;
@@ -16,24 +16,24 @@ declare module "@mui/material/styles" {
   } */
 
   interface Palette {
-    two: Palette["primary"];
-    three: Palette["primary"];
-    four: Palette["primary"];
-    five: Palette["primary"];
-    six: Palette["primary"];
-    seven: Palette["primary"];
-    eight: Palette["primary"];
+    two: Palette['primary'];
+    three: Palette['primary'];
+    four: Palette['primary'];
+    five: Palette['primary'];
+    six: Palette['primary'];
+    seven: Palette['primary'];
+    eight: Palette['primary'];
   }
 
   interface PaletteOptions {
-    two: PaletteOptions["primary"];
-    three: PaletteOptions["primary"];
-    four: PaletteOptions["primary"];
-    five: PaletteOptions["primary"];
-    six: PaletteOptions["primary"];
-    seven: PaletteOptions["primary"];
-    eight: PaletteOptions["primary"];
-    borderColor: PaletteOptions["primary"];
+    two: PaletteOptions['primary'];
+    three: PaletteOptions['primary'];
+    four: PaletteOptions['primary'];
+    five: PaletteOptions['primary'];
+    six: PaletteOptions['primary'];
+    seven: PaletteOptions['primary'];
+    eight: PaletteOptions['primary'];
+    borderColor: PaletteOptions['primary'];
   }
 
   interface PaletteColor {
@@ -47,87 +47,87 @@ declare module "@mui/material/styles" {
 
 export const dark = createTheme({
   palette: {
-    mode: "dark",
+    mode: 'dark',
     primary: {
-      main: "rgb(28,69,138)",
+      main: 'rgb(28,69,138)',
       // Consider updating the color values below
-      light: "#5470bb",
-      dark: "#0d2339",
-      contrastText: "#fff",
+      light: '#5470bb',
+      dark: '#0d2339',
+      contrastText: '#fff',
     },
     two: {
-      main: "rgb(102,220,196)",
+      main: 'rgb(102,220,196)',
     },
     three: {
-      main: "rgb(178,129,184)",
+      main: 'rgb(178,129,184)',
     },
     four: {
-      main: "rgb(168,93,161)",
+      main: 'rgb(168,93,161)',
     },
     five: {
-      main: "rgb(237,106,134)",
+      main: 'rgb(237,106,134)',
     },
     six: {
-      main: "rgb(113,168,219)",
+      main: 'rgb(113,168,219)',
     },
     seven: {
-      main: "rgb(155,216,247)",
+      main: 'rgb(155,216,247)',
     },
     eight: {
-      main: "rgb(103,195,200)",
+      main: 'rgb(103,195,200)',
     },
 
     info: {
-      main: "#fff",
+      main: '#fff',
     },
     borderColor: {
-      main: "#0d2339",
+      main: '#0d2339',
     },
-    background: { default: "#001328", paper: "#011830" },
+    background: { default: '#001328', paper: '#011830' },
     text: {
-      primary: "#fff",
+      primary: '#fff',
     },
   },
   typography: {
     fontFamily: [
       '"Roboto"',
-      "-apple-system",
-      "BlinkMacSystemFont",
+      '-apple-system',
+      'BlinkMacSystemFont',
       '"Segoe UI"',
       '"Helvetica Neue"',
-      "Arial",
-      "sans-serif",
+      'Arial',
+      'sans-serif',
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
-    ].join(","),
+    ].join(','),
     h1: {
-      marginTop: "3rem",
-      fontWeight: "bold",
-      fontSize: "3rem",
+      marginTop: '3rem',
+      fontWeight: 'bold',
+      fontSize: '3rem',
     },
     h2: {
-      fontSize: "1.7rem",
-      marginTop: "2rem",
-      fontWeight: "normal",
-      marginBottom: "1rem",
-      "@media (min-width:500px)": {
-        fontSize: "2rem",
+      fontSize: '1.7rem',
+      marginTop: '2rem',
+      fontWeight: 'normal',
+      marginBottom: '1rem',
+      '@media (min-width:500px)': {
+        fontSize: '2rem',
       },
     },
     h3: {
-      fontSize: "1.5rem",
-      fontWeight: "normal",
-      marginTop: "1.5rem",
-      marginBottom: "0.75rem",
+      fontSize: '1.5rem',
+      fontWeight: 'normal',
+      marginTop: '1.5rem',
+      marginBottom: '0.75rem',
     },
     h4: {
-      fontSize: "1.5rem",
-      fontWeight: "bold",
+      fontSize: '1.5rem',
+      fontWeight: 'bold',
     },
     subtitle1: {
-      fontSize: "1.25rem",
-      fontWeight: "bold",
+      fontSize: '1.25rem',
+      fontWeight: 'bold',
     },
     caption: {
       fontSize: 14,
@@ -136,16 +136,16 @@ export const dark = createTheme({
   shape: { borderRadius: 16 },
   components: {
     MuiContainer: {
-      defaultProps: { maxWidth: "lg" },
+      defaultProps: { maxWidth: 'lg' },
     },
     MuiButton: {
       styleOverrides: { root: { fontWeight: 500 } },
     },
     MuiLink: {
-      styleOverrides: { root: { color: "#9ec0ff" } },
+      styleOverrides: { root: { color: '#9ec0ff' } },
     },
     MuiAccordionSummary: {
-      styleOverrides: { content: { "&.Mui-expanded": { marginBottom: 5 } } },
+      styleOverrides: { content: { '&.Mui-expanded': { marginBottom: 5 } } },
     },
   },
   breakpoints: {

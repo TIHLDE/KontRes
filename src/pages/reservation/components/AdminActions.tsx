@@ -1,7 +1,7 @@
-import Check from "@mui/icons-material/Check";
-import Close from "@mui/icons-material/Close";
-import { Paper, Button } from "@mui/material";
-import { Stack } from "@mui/system";
+import Check from '@mui/icons-material/Check';
+import Close from '@mui/icons-material/Close';
+import { Paper, Button } from '@mui/material';
+import { Stack } from '@mui/system';
 
 /**
  * This component will be displayed on a reservation request page if the user has
@@ -10,25 +10,19 @@ import { Stack } from "@mui/system";
  */
 const AdminActions = () => {
   return (
-    <Paper variant="outlined" sx={{ paddingX: 2, paddingY: 2 }}>
-      <Stack direction={"row"} gap={1} width={"100%"}>
+    <Paper variant='outlined' sx={{ paddingX: 2, paddingY: 2 }}>
+      <Stack direction={'row'} gap={1} width={'100%'}>
         <Button
-          variant="contained"
+          variant='contained'
           startIcon={<Check />}
-          color="success"
+          color='success'
           sx={{
-            color: "white",
+            color: 'white',
           }}
-          fullWidth
-        >
+          fullWidth>
           Godkjenn
         </Button>
-        <Button
-          variant="contained"
-          startIcon={<Close />}
-          color="error"
-          fullWidth
-        >
+        <Button variant='contained' startIcon={<Close />} color='error' fullWidth>
           Avslå
         </Button>
       </Stack>

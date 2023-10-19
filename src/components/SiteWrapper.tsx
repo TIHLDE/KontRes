@@ -1,5 +1,5 @@
-import { Header } from "./Header";
-import useBookableItems from "@/utils/hooks/useBookableItems";
+import { Header } from './Header';
+import useBookableItems from '@/utils/hooks/useBookableItems';
 
 /**
  * This is a component that wraps the entire content of the page. It adds default components
@@ -14,7 +14,7 @@ const SiteWrapper = ({ children }: { children: any }) => {
         items={data?.map((e) => {
           return {
             displayName: e.name,
-            href: "#",
+            href: '#',
           };
         })}
       />

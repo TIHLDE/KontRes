@@ -1,6 +1,6 @@
-import { getItem, getItems } from "@/apis/reservations/reservations";
-import { DetailedItem } from "@/apis/reservations/types";
-import { QueryOptions, useQuery } from "@tanstack/react-query";
+import { getItem, getItems } from '@/apis/reservations/reservations';
+import { DetailedItem } from '@/apis/reservations/types';
+import { QueryOptions, useQuery } from '@tanstack/react-query';
 
 type UseBookableItemsProps = {
   uuid?: string;
@@ -15,9 +15,8 @@ type UseBookableItemsProps = {
  */
 const useBookableItems = ({ uuid, ...options }: UseBookableItemsProps) => {
   const obj = useQuery({
-    queryKey: ["bookable_items"],
-    queryFn: async () =>
-      uuid ? (await getItem(uuid)).data : (await getItems()).data,
+    queryKey: ['bookable_items'],
+    queryFn: async () => (uuid ? (await getItem(uuid)).data : (await getItems()).data),
     ...options,
   });
 

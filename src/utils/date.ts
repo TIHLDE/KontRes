@@ -1,5 +1,5 @@
-import { format } from "date-fns";
-import nbLocale from "date-fns/locale/nb";
+import { format } from 'date-fns';
+import nbLocale from 'date-fns/locale/nb';
 
 /**
  * Format date in format: `Tor 12. okt. 2021 08:30`
@@ -19,16 +19,12 @@ export const formatDate = (
     fullMonth?: boolean;
     fullDayOfWeek?: boolean;
     capitalizeFirstLetter?: boolean;
-  } = {}
+  } = {},
 ) => {
   const isDifferentYear = date.getFullYear() !== new Date().getFullYear();
-  const formatDateString = `${fullDayOfWeek ? "EEEE" : "E"} do ${
-    fullMonth ? "MMMM" : "MMM"
-  }${isDifferentYear ? " yyyy" : ""}`;
-  const formatted = format(date, `${formatDateString}${time ? " p" : ""}`, {
+  const formatDateString = `${fullDayOfWeek ? 'EEEE' : 'E'} do ${fullMonth ? 'MMMM' : 'MMM'}${isDifferentYear ? ' yyyy' : ''}`;
+  const formatted = format(date, `${formatDateString}${time ? ' p' : ''}`, {
     locale: nbLocale,
   });
-  return capitalizeFirstLetter
-    ? `${formatted.charAt(0).toUpperCase()}${formatted.slice(1)}`
-    : formatted;
+  return capitalizeFirstLetter ? `${formatted.charAt(0).toUpperCase()}${formatted.slice(1)}` : formatted;
 };

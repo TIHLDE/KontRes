@@ -1,23 +1,9 @@
-import {
-  Button,
-  FormControl,
-  Grid,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
-import { Stack } from "@mui/system";
+import { Button, FormControl, Grid, Paper, TextField, Typography } from '@mui/material';
+import { Stack } from '@mui/system';
 
 export default function Page() {
   return (
-    <Grid
-      container
-      spacing={0}
-      direction='column'
-      alignItems='center'
-      justifyContent='center'
-      sx={{ height: '80vh' }}
-    >
+    <Grid container spacing={0} direction='column' alignItems='center' justifyContent='center' sx={{ height: '80vh' }}>
       <Paper variant={'outlined'} sx={{ p: 5 }}>
         <Stack spacing={2}>
           <Typography variant='h4'>Logg inn</Typography>

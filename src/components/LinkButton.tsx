@@ -1,5 +1,5 @@
-import { Typography, TypographyProps } from "@mui/material";
-import Link, { LinkProps } from "next/link";
+import { Typography, TypographyProps } from '@mui/material';
+import Link, { LinkProps } from 'next/link';
 
 export interface CustomLinkProps extends LinkProps {
   href: string;
@@ -11,13 +11,9 @@ export interface CustomLinkProps extends LinkProps {
   Hydration error fordi vi nester to a tags
   ikke bruk Mui Link
 */
-export const LinkButton = ({
-  children,
-  typographyProps,
-  ...props
-}: CustomLinkProps) => {
+export const LinkButton = ({ children, typographyProps, ...props }: CustomLinkProps) => {
   return (
-    <Link style={{ textDecoration: "none", color: "inherit" }} {...props}>
+    <Link style={{ textDecoration: 'none', color: 'inherit' }} {...props}>
       <Typography {...typographyProps}>{children}</Typography>
     </Link>
   );
