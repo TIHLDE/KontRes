@@ -1,11 +1,11 @@
-import { Button, Container, Grid, Paper, Typography } from "@mui/material";
-import { Stack } from "@mui/system";
-import dayjs from "dayjs";
-import Image from "next/image";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import { DateTimePicker } from "../components/DateTimePicker";
-import { Kalender } from "../components/kalender/Kalender";
+import { Button, Container, Grid, Paper, Typography } from '@mui/material';
+import { Stack } from '@mui/system';
+import dayjs from 'dayjs';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { DateTimePicker } from '../components/DateTimePicker';
+import { Kalender } from '../components/kalender/Kalender';
 
 const Home = () => {
   const [fra, setFra] = useState(dayjs());
@@ -29,9 +29,9 @@ const Home = () => {
           marginTop: '-80px',
         }}>
         <Image
-          src={"/kontoret.jpg"}
-          alt=""
-          layout="fill"
+          src={'/kontoret.jpg'}
+          alt=''
+          layout='fill'
           style={{
             position: 'absolute',
             top: 0,
