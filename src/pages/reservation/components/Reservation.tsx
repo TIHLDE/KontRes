@@ -15,7 +15,7 @@ interface ReservationProps {
  * This is a page that displays a given reservation. It is not rendered directly by next, but
  * rather through ./[id].tsx, which uses this component to render a reservation page.
  *
- * @param param0.reservation Pre-loaded reservation data
+ * @param reservation Pre-loaded reservation data
  * @returns The page
  */
 const Reservation = ({ reservation, reservationId }: ReservationProps) => {

@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { DateTimePicker } from '../components/DateTimePicker';
 import { Kalender } from '../components/kalender/Kalender';
-import kontoret from '../media/kontoret.jpg';
 
 const Home = () => {
   const [fra, setFra] = useState(dayjs());
@@ -30,7 +29,7 @@ const Home = () => {
           marginTop: '-80px',
         }}>
         <Image
-          src={kontoret}
+          src={'/kontoret.jpg'}
           alt=''
           layout='fill'
           style={{
