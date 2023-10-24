@@ -15,6 +15,7 @@ const Page = ({ children, sx, ...props }: ContainerProps) => {
           md: 2,
           sm: 1,
         },
+        paddingTop: 10,
         ...sx,
       }}
       {...props}>

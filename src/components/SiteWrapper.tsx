@@ -1,3 +1,4 @@
+import { Box } from '@mui/system';
 import { Header } from './Header';
 import useBookableItems from '@/utils/hooks/useBookableItems';
 
@@ -9,8 +10,14 @@ const SiteWrapper = ({ children }: { children: any }) => {
   const { data } = useBookableItems({});
 
   return (
-    <>
+    <Box
+      sx={{
+        minHeight: '100vh',
+      }}>
       <Header
+        sx={{
+          position: 'absolute',
+        }}
         items={data?.map((e) => {
           return {
             displayName: e.name,
@@ -19,7 +26,7 @@ const SiteWrapper = ({ children }: { children: any }) => {
         })}
       />
       {children}
-    </>
+    </Box>
   );
 };
 
