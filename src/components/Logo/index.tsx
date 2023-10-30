@@ -1,13 +1,21 @@
-import Image from "next/image";
-import LogoSvg from "./Logo.svg";
+import Image, { ImageProps } from 'next/image';
+import LogoSvg from './Logo.svg';
 
-export default function Logo() {
+const Logo = ({ onClick, ...props }: Omit<ImageProps, 'src' | 'alt'>) => {
   return (
     <Image
-      src={LogoSvg}
       width={150}
+      onClick={onClick}
+      style={{
+        filter: 'invert(1)',
+        marginBottom: -8,
+        cursor: onClick ? 'pointer' : 'unset',
+      }}
+      {...props}
+      src={LogoSvg}
       alt='Tihldes logo'
-      style={{ filter: "invert(1)", marginBottom: -8 }}
     />
   );
-}
+};
+
+export default Logo;
