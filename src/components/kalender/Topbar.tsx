@@ -1,6 +1,7 @@
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import {
+  Box,
   Grid,
   IconButton,
   Stack,
@@ -55,7 +56,6 @@ export default function Topbar({
         spacing={2}
         justifyContent={"end"}
         alignItems={"center"}
-        sx={{ mb: 5 }}
       >
         <ToggleButtonGroup
           color='primary'
@@ -75,7 +75,6 @@ export default function Topbar({
         spacing={2}
         justifyContent={"center"}
         alignItems={"center"}
-        sx={{ mb: 5 }}
       >
         <IconButton
           onClick={() =>
@@ -100,11 +99,10 @@ export default function Topbar({
         </IconButton>
       </Stack>
       {viewBy === "week" ? (
-        <Grid container columns={8}>
-          <Grid item sx={{ width: "12.5%" }}></Grid>
+        <Stack direction={"row"}>
           {weekDays.map((day, index) => {
             return (
-              <Grid item key={index} sx={{ width: "12.5%" }}>
+              <Box key={index} sx={{ width: "100%" }}>
                 <Typography
                   variant={"h6"}
                   textAlign={"center"}
@@ -112,10 +110,10 @@ export default function Topbar({
                 >
                   {day}
                 </Typography>
-              </Grid>
+              </Box>
             );
           })}
-        </Grid>
+        </Stack>
       ) : (
         <Grid container justifyContent={"center"} alignItems={"center"}>
           <Grid item>

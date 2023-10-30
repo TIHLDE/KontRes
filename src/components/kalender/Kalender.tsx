@@ -1,6 +1,6 @@
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { Container, Stack } from "@mui/system";
 import dayjs from "dayjs";
 import weekOfYear from "dayjs/plugin/weekOfYear";
@@ -13,23 +13,10 @@ dayjs.extend(weekOfYear);
 const fakeBookingData = {
   bookings: [
     {
-      description:
-        "Ingenting gir bedre proggemotivasjon enn en god film om koding og forræderi, med selveste Zucc i hovedrollen",
-      end: "21.00-26-09-2023",
-      start: "20.00-25-09-2023",
-      title: "The social network and chill",
-    },
-    {
-      description: "Utløser brannalarmen hver eneste dag.",
-      end: "16.00-29-09-2023",
-      start: "08.00-27-09-2023",
-      title: "Vask av mikroen",
-    },
-    {
-      description: "brannalarmen hver eneste dag.",
-      end: "20.00-04-10-2023",
-      start: "00.00-04-10-2023",
-      title: "Vask av mikroen",
+      description: "test",
+      end: "21.00-10-10-2023",
+      start: "20.00-10-10-2023",
+      title: "test",
     },
   ],
 };
@@ -58,45 +45,8 @@ export const Kalender = ({ admin, full }: KalenderProps) => {
         viewBy={viewBy}
         setViewBy={setViewBy}
       />
-      <Container maxWidth={false} style={{ position: "relative" }}>
-        {!fullSize ? (
-          <>
-            <div
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                height: 100,
-                zIndex: 10,
-                backgroundImage:
-                  "linear-gradient(to bottom, rgb(8,25,48, 0%), rgb(8,25,48, 50%), rgb(8,25,48, 80%),rgb(8,25,48))",
-              }}
-            ></div>
-            <div
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                height: 100,
-                zIndex: 10,
-                backgroundImage:
-                  "linear-gradient(to top, rgb(8,25,48, 0%), rgb(8,25,48, 50%), rgb(8,25,48, 80%),rgb(8,25,48))",
-              }}
-            ></div>
-          </>
-        ) : null}
-        <Grid
-          container
-          columns={8}
-          ref={divRef}
-          style={{
-            position: "relative",
-            maxHeight: fullSize ? "unset" : 400,
-            overflowY: "hidden",
-          }}
-        >
+      <>
+        <Backdrop ref={divRef} fullSize={fullSize}>
           {fakeBookingData.bookings.map((booking, index1) => {
             let start = dayjs(booking.start, "HH.mm-DD-MM-YYYY");
 
@@ -128,9 +78,9 @@ export const Kalender = ({ admin, full }: KalenderProps) => {
               );
             });
           })}
-          <Backdrop />
-        </Grid>
-      </Container>
+        </Backdrop>
+      </>
+
       <Stack justifyContent={"end"}>
         <Button
           variant='contained'

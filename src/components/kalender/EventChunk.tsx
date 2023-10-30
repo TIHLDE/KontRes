@@ -25,8 +25,8 @@ function EventChunk({ booking, chunk }: EventChunkProps) {
       variant={"outlined"}
       style={{
         position: "absolute",
-        top: chunk[0].hour() * 60 + chunk[0].minute(),
-        left: "calc(" + (chunk[1].day() * 12.5).toString() + "% + 2px)",
+        top: chunk[0].hour() * 30 + chunk[0].minute() / 2,
+        left: "calc(" + (chunk[1].day() * 12.5).toString() + "%)",
         height: chunk[1].diff(chunk[0], "minute"),
         width: "calc(12.5% - 4px)",
         padding: 8,
