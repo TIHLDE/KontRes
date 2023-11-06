@@ -4,7 +4,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import { useEffect, useState } from 'react';
 // Material
 import LightModeIcon from '@mui/icons-material/LightMode';
-import { AppBar, IconButton, Stack, Toolbar } from '@mui/material';
+import { AppBar, AppBarProps, IconButton, Stack, Toolbar } from '@mui/material';
 import { LinkButton, CustomLinkProps } from './LinkButton';
 import Logo from './Logo';
 import { useRouter } from 'next/router';
@@ -14,7 +14,7 @@ type ReservationItem = {
   href: string;
 };
 
-interface HeaderProps {
+interface HeaderProps extends AppBarProps {
   items?: ReservationItem[];
 }
 
@@ -26,7 +26,7 @@ const ItemButton = ({ children, ...props }: CustomLinkProps) => {
   return <LinkButton {...props}>{children}</LinkButton>;
 };
 
-export const Header = ({ items }: HeaderProps) => {
+export const Header = ({ items, ...props }: HeaderProps) => {
   const [opaque, setOpaque] = useState(false);
   const router = useRouter();
 
@@ -52,7 +52,8 @@ export const Header = ({ items }: HeaderProps) => {
         backdropFilter: opaque ? 'blur(7.2px)' : 'unset',
         backgroundColor: opaque ? 'rgba(8,25,48,0.6)' : 'unset',
       }}
-      elevation={opaque ? 4 : 0}>
+      elevation={opaque ? 4 : 0}
+      {...props}>
       <Toolbar variant='regular'>
         <Logo
           onClick={() => {
