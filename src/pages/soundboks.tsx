@@ -3,9 +3,8 @@ import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { Kalender } from '../components/Calendar/Calendar';
 import { DateTimePicker } from '../components/DateTimePicker';
-import { Header } from '../components/Header';
-import { Kalender } from '../components/kalender/Kalender';
 
 dayjs.extend(isBetween);
 
