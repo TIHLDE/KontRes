@@ -4,8 +4,8 @@ import dayjs from 'dayjs';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { Kalender } from '../components/Calendar/Calendar';
 import { DateTimePicker } from '../components/DateTimePicker';
-import { Kalender } from '../components/kalender/Kalender';
 
 const Home = () => {
   const [fra, setFra] = useState(dayjs());

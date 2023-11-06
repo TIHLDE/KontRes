@@ -19,18 +19,17 @@ interface EventChunkProps {
 }
 
 function EventChunk({ booking, chunk }: EventChunkProps) {
-  console.log(chunk);
+  //hard to do this without absolute positioning
   return (
     <Paper
       variant={'outlined'}
-      style={{
+      sx={{
         position: 'absolute',
-        top: chunk[0].hour() * 60 + chunk[0].minute(),
-        left: 'calc(' + (chunk[1].day() * 12.5).toString() + '% + 2px)',
-        height: chunk[1].diff(chunk[0], 'minute'),
-        width: 'calc(12.5% - 4px)',
-        padding: 8,
-        borderRadius: 4,
+        top: (chunk[0].hour() / 2) * 60 + chunk[0].minute() / 2,
+        left: ((chunk[1].day() - 1) * 100) / 7 + '%',
+        height: chunk[1].diff(chunk[0], 'minute') / 2,
+        width: (1 / 7) * 100 + '%',
+        borderRadius: 0.5, //TODO - set to theme
         overflow: 'hidden',
         backgroundColor: hexFromString(booking.title),
       }}></Paper>

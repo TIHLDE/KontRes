@@ -2,21 +2,10 @@ import { Grid } from '@mui/material';
 import dayjs from 'dayjs';
 import Day from './Day';
 
-//lager en grid med 24 rader og 7 kolonner + tidspunktene
-//litt mye magic
 import { ReactNode, RefObject } from 'react';
 
-export default function Backdrop({
-  children,
-  ref,
-  fullSize,
-  activeDay,
-}: {
-  children: ReactNode;
-  ref: RefObject<HTMLDivElement>;
-  fullSize: boolean;
-  activeDay: dayjs.Dayjs;
-}) {
+export default function Backdrop({ children, ref, activeDay }: { children: ReactNode; ref: RefObject<HTMLDivElement>; activeDay: dayjs.Dayjs }) {
+  //gives the backdrop a grid with 24 rows and 7 columns
   return (
     <Grid
       columns={7}
