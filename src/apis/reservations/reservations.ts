@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { DetailedItem, DetailedReservation } from './types';
+import { IGet } from '@/utils/fetch';
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? '';
 
@@ -10,8 +11,11 @@ const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? '';
  * @returns Reservation details
  */
 export const getReservation = (uuid: string) => {
-  return axios.get<DetailedReservation>('/kontres/reservations/' + uuid + '/', {
-    baseURL: baseUrl,
+  return IGet<DetailedReservation>({
+    url: `/kontres/reservations${uuid}/`,
+    config: {
+      baseURL: baseUrl,
+    },
   });
 };
 
@@ -26,8 +30,11 @@ export const getReservation = (uuid: string) => {
  * @returns Item details
  */
 export const getItem = (uuid: string) => {
-  return axios.get<DetailedItem[]>('/kontres/bookable_items/', {
-    baseURL: baseUrl,
+  return IGet<DetailedItem[]>({
+    url: '/kontres/bookable_items/',
+    config: {
+      baseURL: baseUrl,
+    },
   });
 };
 
@@ -37,7 +44,10 @@ export const getItem = (uuid: string) => {
  * @returns A list of all reservalble items
  */
 export const getItems = () => {
-  return axios.get<DetailedItem[]>('/kontres/bookable_items/', {
-    baseURL: baseUrl,
+  return IGet<DetailedItem[]>({
+    url: '/kontres/bookable_items/',
+    config: {
+      baseURL: baseUrl,
+    },
   });
 };

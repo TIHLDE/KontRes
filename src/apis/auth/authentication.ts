@@ -1,21 +1,28 @@
 import axios from 'axios';
 
-interface signInProps {
+export interface signInProps {
   password: string;
   username: string;
 }
 
-const authUrl = process.env.NEXTAUTH_URL;
+const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? '';
+const authUrl = baseUrl + '/auth/login/';
 
 export type SignInRequestResponse = {
   token: string;
 };
 
 export const signIn = ({ username, password }: signInProps) => {
-  return axios.post<SignInRequestResponse>(authUrl as string, {
-    body: {
-      username,
+  return axios.post<SignInRequestResponse>(
+    authUrl,
+    JSON.stringify({
+      user_id: username,
       password,
+    }),
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
     },
-  });
+  );
 };
