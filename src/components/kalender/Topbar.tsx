@@ -1,6 +1,6 @@
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import { Grid, IconButton, Stack, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
+import { Box, Grid, IconButton, Stack, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 
 interface TopbarProps {
@@ -17,7 +17,7 @@ const months = ['Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni', 'Juli', 'Au
 export default function Topbar({ activeDay, setActiveDay, viewBy, setViewBy }: TopbarProps) {
   return (
     <>
-      <Stack direction={'row'} spacing={2} justifyContent={'end'} alignItems={'center'} sx={{ mb: 5 }}>
+      <Stack direction={'row'} spacing={2} justifyContent={'end'} alignItems={'center'}>
         <ToggleButtonGroup
           color='primary'
           exclusive
@@ -28,7 +28,7 @@ export default function Topbar({ activeDay, setActiveDay, viewBy, setViewBy }: T
           <ToggleButton value='week'>Uke</ToggleButton>
         </ToggleButtonGroup>
       </Stack>
-      <Stack direction={'row'} spacing={2} justifyContent={'center'} alignItems={'center'} sx={{ mb: 5 }}>
+      <Stack direction={'row'} spacing={2} justifyContent={'center'} alignItems={'center'}>
         <IconButton onClick={() => setActiveDay(activeDay.subtract(viewBy === 'week' ? 7 : 1, 'day'))}>
           <ArrowLeftIcon />
         </IconButton>
@@ -40,18 +40,17 @@ export default function Topbar({ activeDay, setActiveDay, viewBy, setViewBy }: T
         </IconButton>
       </Stack>
       {viewBy === 'week' ? (
-        <Grid container columns={8}>
-          <Grid item sx={{ width: '12.5%' }}></Grid>
+        <Stack direction={'row'}>
           {weekDays.map((day, index) => {
             return (
-              <Grid item key={index} sx={{ width: '12.5%' }}>
+              <Box key={index} sx={{ width: '100%' }}>
                 <Typography variant={'h6'} textAlign={'center'} sx={{ height: 48 }}>
                   {day}
                 </Typography>
-              </Grid>
+              </Box>
             );
           })}
-        </Grid>
+        </Stack>
       ) : (
         <Grid container justifyContent={'center'} alignItems={'center'}>
           <Grid item>
