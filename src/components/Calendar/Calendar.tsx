@@ -18,7 +18,11 @@ const fakeBookingData = {
   ],
 };
 
-export const Kalender = () => {
+interface KalenderProps {
+  admin: boolean;
+}
+
+export const Kalender: React.FC<KalenderProps> = ({ admin }) => {
   const [activeDay, setActiveDay] = useState(dayjs());
   const [viewBy, setViewBy] = useState<String>('week'); //TODO: implement day view
   const divRef = useRef<HTMLDivElement>(null);
