@@ -6,8 +6,12 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { DateTimePicker } from '../components/DateTimePicker';
 import { Kalender } from '../components/kalender/Kalender';
+import SiteWrapper from '@/components/SiteWrapper';
+import { getItems } from '@/apis/reservations/reservations';
+import { DetailedItem } from '@/apis/reservations/types';
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 
-const Home = () => {
+const Home = ({ headerItems }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const [fra, setFra] = useState(dayjs());
   const [til, setTil] = useState(dayjs());
   const router = useRouter();
@@ -20,7 +24,7 @@ const Home = () => {
     }
   }
   return (
-    <>
+    <SiteWrapper headerItems={headerItems}>
       <div
         style={{
           height: '100vh',
@@ -74,8 +78,29 @@ const Home = () => {
           <Kalender admin={false} />
         </Paper>
       </Container>
-    </>
+    </SiteWrapper>
   );
 };
+
+export const getServerSideProps = (async () => {
+  try {
+    const { data } = await getItems();
+
+    console.log(data);
+
+    return {
+      props: {
+        headerItems: data,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      notFound: true,
+    };
+  }
+}) satisfies GetServerSideProps<{
+  headerItems: DetailedItem[];
+}>;
 
 export default Home;
