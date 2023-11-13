@@ -1,3 +1,5 @@
+import { v4 as uuidv4, v4 } from 'uuid';
+
 /**
  * Url to backend
  */
@@ -14,3 +16,5 @@ export const ACCESS_TOKEN = 'TIHLDE-AccessToken';
  * Name of cookie which is used to store whether the user has accepted our analytics popup
  */
 export const ACCEPTED_ANALYTICS = 'TIHLDE-AcceptedAnalytics';
+
+export const TOKEN_PASSWORD = v4();

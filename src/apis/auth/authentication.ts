@@ -6,7 +6,7 @@ export interface signInProps {
 }
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? '';
-const authUrl = baseUrl + '/auth/login/';
+export const authUrl = baseUrl + '/auth/login/';
 
 export type SignInRequestResponse = {
   token: string;

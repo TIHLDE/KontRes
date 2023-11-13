@@ -1,6 +1,5 @@
-import { SignInRequestResponse, signIn, signInProps } from '@/apis/auth/authentication';
-import { UseMutateFunction, useMutation, useQueryClient } from '@tanstack/react-query';
-import { AxiosResponse } from 'axios';
+import { signIn } from '@/apis/auth/authentication';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { setCookie } from '../cookies';
 import { ACCESS_TOKEN } from '../constant';
 import { useRouter } from 'next/router';
@@ -20,10 +19,14 @@ const useLogin = ({ redirect = '/' }: UseLoginProps) => {
   } = useMutation(signIn, {
     onSuccess: ({ data: { token } }) => {
       setCookie(ACCESS_TOKEN, token);
+
       queryClient.invalidateQueries();
 
       // Redirect to the redirect URL
       router.replace(redirect);
+    },
+    onError: (err) => {
+      console.error('Could not sign in: ', err);
     },
   });
 
