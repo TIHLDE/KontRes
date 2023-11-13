@@ -45,7 +45,6 @@ export const Header = ({ items, ...props }: HeaderProps) => {
 
   return (
     <AppBar
-      position='sticky'
       color='transparent'
       sx={{
         paddingY: '.5rem',

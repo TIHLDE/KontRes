@@ -11,7 +11,7 @@ import { getItems } from '@/apis/reservations/reservations';
 import { DetailedItem } from '@/apis/reservations/types';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 
-const Home = ({ headerItems }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const Home = (/* { headerItems }: InferGetServerSidePropsType<typeof getServerSideProps> */) => {
   const [fra, setFra] = useState(dayjs());
   const [til, setTil] = useState(dayjs());
   const router = useRouter();
@@ -24,7 +24,7 @@ const Home = ({ headerItems }: InferGetServerSidePropsType<typeof getServerSideP
     }
   }
   return (
-    <SiteWrapper headerItems={headerItems}>
+    <SiteWrapper>
       <div
         style={{
           height: '100vh',
@@ -82,7 +82,7 @@ const Home = ({ headerItems }: InferGetServerSidePropsType<typeof getServerSideP
   );
 };
 
-export const getServerSideProps = (async () => {
+/* export const getServerSideProps = (async () => {
   try {
     const { data } = await getItems();
 
@@ -101,6 +101,6 @@ export const getServerSideProps = (async () => {
   }
 }) satisfies GetServerSideProps<{
   headerItems: DetailedItem[];
-}>;
+}>; */
 
 export default Home;
