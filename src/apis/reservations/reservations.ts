@@ -20,9 +20,9 @@ export const getReservation = (uuid: string) => {
 };
 
 /* 
-  !!!: The following two functions are very similar because there is no backend implementation for getting specific items. 
-  Therefore, both functions do the same as of now.
-*/
+    !!!: The following two functions are very similar because there is no backend implementation for getting specific items. 
+    Therefore, both functions do the same as of now.
+  */
 /**
  * Gets a specific item given an item UUID.
  *
